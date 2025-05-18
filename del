@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Ma Lifelist de Pêche</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+        }
+
+        header {
+            background-color: #0055aa;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        .search-bar {
+            margin: 1rem;
+            text-align: center;
+        }
+
+        .search-bar input {
+            padding: 0.5rem;
+            width: 300px;
+            font-size: 1rem;
+        }
+
+        table {
+            width: 95%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 0.6rem;
+            text-align: center;
+        }
+
+        th {
+            background-color: #e0e0e0;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        img.thumbnail {
+            width: 60px;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        img.thumbnail:hover {
+            transform: scale(1.1);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+        }
+
+        .modal-content {
+            display: block;
+            margin: 5% auto;
+            max-width: 90%;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .search-bar input {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Ma Lifelist de Pêche</h1>
+</header>
+
+<div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Rechercher un poisson..." onkeyup="filterTable()" />
+</div>
+
+<table id="lifelistTable">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nom Français</th>
+            <th>Nom Anglais</th>
+            <th>Nom Scientifique</th>
+            <th>Date de Capture</th>
+            <th>Pays</th>
+            <th>Photo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Barbue de rivière</td>
+            <td>Channel Catfish</td>
+            <td>Ictalurus punctatus</td>
+            <td>2023-06-10</td>
+            <td>Canada</td>
+            <td>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Ictalurus_punctatus.jpeg/320px-Ictalurus_punctatus.jpeg"
+                     class="thumbnail" alt="Barbue de rivière"
+                     onclick="openModal(this.src)" />
+            </td>
+        </tr>
+        <!-- Ajoute d'autres lignes ici -->
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div id="imgModal" class="modal" onclick="closeModal()">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+        <img id="modalImage" src="" alt="Zoom image">
+    </div>
+</div>
+
+<script>
+    function filterTable() {
+        const input = document.getElementById("searchInput").value.toLowerCase();
+        const rows = document.querySelectorAll("#lifelistTable tbody tr");
+        rows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            row.style.display = text.includes(input) ? "" : "none";
+        });
+    }
+
+    function openModal(src) {
+        document.getElementById("modalImage").src = src;
+        document.getElementById("imgModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("imgModal").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
