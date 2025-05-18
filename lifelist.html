@@ -72,6 +72,91 @@
     tr:hover {
       background-color: #f0f0f0;
     }
+       .search-bar {
+            margin: 1rem;
+            text-align: center;
+        }
+
+        .search-bar input {
+            padding: 0.5rem;
+            width: 300px;
+            font-size: 1rem;
+        }
+
+        table {
+            width: 95%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 0.6rem;
+            text-align: center;
+        }
+
+        th {
+            background-color: #e0e0e0;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        img.thumbnail {
+            width: 60px;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        img.thumbnail:hover {
+            transform: scale(1.1);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+        }
+
+        .modal-content {
+            display: block;
+            margin: 5% auto;
+            max-width: 90%;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .search-bar input {
+                width: 90%;
+            }
+        }
+    
   </style>
   <script>
     function filterTable() {
