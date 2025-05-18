@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lifelist de pêche - Ozbak</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #2980b9;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    .thumb {
+      max-width: 100px;
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .thumb:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+      border: 4px solid white;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+    }
+
+    .close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .thumb {
+        max-width: 70px;
+      }
+
+      th, td {
+        font-size: 14px;
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Ma Lifelist de Pêche</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Espèce</th>
+        <th>Nom scientifique</th>
+        <th>Photo</th>
+        <th>Lieu de capture</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Barbue de rivière</td>
+        <td><i>Ictalurus punctatus</i></td>
+        <td><img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Ictalurus_punctatus.jpeg" alt="Barbue" class="thumb" onclick="showModal(this)"></td>
+        <td>Rivière Richelieu</td>
+        <td>2024-08-12</td>
+      </tr>
+      <tr>
+        <td>Perchaude</td>
+        <td><i>Perca flavescens</i></td>
+        <td><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/YellowPerch.jpg" alt="Perchaude" class="thumb" onclick="showModal(this)"></td>
+        <td>Lac Saint-Louis</td>
+        <td>2023-06-25</td>
+      </tr>
+      <!-- Ajoute plus de lignes ici -->
+    </tbody>
+  </table>
+
+  <!-- Modal pour agrandir les images -->
+  <div id="imgModal" class="modal" onclick="closeModal(event)">
+    <span class="close" onclick="closeModal(event)">&times;</span>
+    <img class="modal-content" id="modalImg">
+  </div>
+
+  <script>
+    function showModal(imgElement) {
+      const modal = document.getElementById('imgModal');
+      const modalImg = document.getElementById('modalImg');
+      modal.style.display = 'flex';
+      modalImg.src = imgElement.src;
+      modalImg.alt = imgElement.alt;
+    }
+
+    function closeModal(event) {
+      const modal = document.getElementById('imgModal');
+      if (
+        event.target === modal || 
+        event.target.classList.contains('close')
+      ) {
+        modal.style.display = 'none';
+      }
+    }
+  </script>
+
+</body>
+</html>
