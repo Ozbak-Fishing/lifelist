@@ -1,41 +1,99 @@
-<section id="big5" class="big5-section">
-  <h2>Mon Big 5 – Espèces Recherchées au Québec</h2>
-  <p>Voici les cinq espèces d’eau douce que je souhaite le plus capturer au Québec. C’est mon objectif personnel de les ajouter à ma lifelist.</p>
-  
-  <div class="big5-grid">
-    <div class="species-card">
-      <img src="images/chevalier_cuivre.jpg" alt="Chevalier cuivré">
-      <h3>Chevalier Cuivré</h3>
-      <p><strong>English:</strong> Copper Redhorse<br>
-         <em>Moxostoma hubbsi</em></p>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ozbak - Ma Lifelist de Pêche</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-/nMb2I7M4Ekmgl7SjeqFqAVOjIXE2f4G1T2cEElG0PSKNBLFUbKr45dODWm4Tx1ZPpVR6Q9sfjCrgH++wTQO6w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #f4f9ff;
+      color: #222;
+    }
+    header {
+      background-color: #0050b3;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      height: 60px;
+      margin-right: 1rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+    }
+    .socials {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .socials a {
+      text-decoration: none;
+      color: white;
+      font-size: 1.6rem;
+      display: flex;
+      align-items: center;
+    }
+    .socials a:hover {
+      color: #ffcc00;
+    }
+    main {
+      padding: 2rem;
+      max-width: 960px;
+      margin: auto;
+    }
+    .about {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      margin-top: 2rem;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="favicon.ico" alt="Logo Ozbak">
+      <h1>Ozbak - Lifelist</h1>
     </div>
-    
-    <div class="species-card">
-      <img src="images/esturgeon_noir.jpg" alt="Esturgeon noir">
-      <h3>Esturgeon Noir</h3>
-      <p><strong>English:</strong> Atlantic Sturgeon<br>
-         <em>Acipenser oxyrinchus</em></p>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="lifelist.html">Lifelist</a>
+      <a href="poissons-manquants.html">Poissons manquants (QC)</a>
+      <a href="#about">À propos</a>
+    </nav>
+    <div class="socials">
+      <a href="https://www.youtube.com/channel/UCeBZ9tmqAlF5FpqstJlgaxQ" target="_blank" title="YouTube"><img src="https://i.imgur.com/9dx1WP3.png" alt="Youtube" style="height: 40px; margin-left: 40px;"></a>
+      <a href="https://www.facebook.com/OzbakFishing2022/" target="_blank" title="Facebook"><img src="https://i.imgur.com/zY6sPap.png" alt="Facebook" style="height: 40px; margin-left: 40px;"></a>
+      <a href="https://www.inaturalist.org/people/ozbak" target="_blank" title="iNaturalist"><img src="https://i.imgur.com/zDeQY54.png" alt="iNaturalist" style="height: 40px; margin-left: 40px;"></a>
     </div>
-    
-    <div class="species-card">
-      <img src="images/masquinonge.jpg" alt="Maskinongé">
-      <h3>Maskinongé</h3>
-      <p><strong>English:</strong> Muskellunge<br>
-         <em>Esox masquinongy</em></p>
-    </div>
-    
-    <div class="species-card">
-      <img src="images/rotengle.jpg" alt="Rotengle">
-      <h3>Rotengle</h3>
-      <p><strong>English:</strong> Rudd<br>
-         <em>Scardinius erythrophthalmus</em></p>
-    </div>
-    
-    <div class="species-card">
-      <img src="images/menominee.jpg" alt="Ménomini Rond">
-      <h3>Ménomini Rond</h3>
-      <p><strong>English:</strong> Round Whitefish<br>
-         <em>Prosopium cylindraceum</em></p>
-    </div>
-  </div>
-</section>
+  </header>
+  <main>
+    <section class="about" id="about">
+      <h2>À propos</h2>
+      <p>Je suis un pêcheur passionné vivant à Montréal, spécialisé dans la capture et la documentation des espèces de poissons que je rencontre. Ce site est une vitrine de ma <strong>lifelist</strong>, un journal vivant de toutes les espèces que j’ai capturées à travers mes aventures.</p>
+      <p>Mon objectif est de découvrir et respecter la biodiversité halieutique, un poisson à la fois 🎣</p>
+<h2>About</h2>
+<p>I’m a passionate angler based in Montreal, focused on catching and documenting the fish species I encounter. This site showcases my <strong>lifelist</strong>—a living journal of all the species I’ve caught throughout my adventures.</p>
+<p>My goal is to discover and respect aquatic biodiversity, one fish at a time 🎣</p>
+
+    </section>
+  </main>
+</body>
+</html>
