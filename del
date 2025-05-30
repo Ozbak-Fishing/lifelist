@@ -1,13 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ozbak - Ma Lifelist de Pêche</title>
+  <title>Poissons manquants (QC) - Ozbak</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-/nMb2I7M4Ekmgl7SjeqFqAVOjIXE2f4G1T2cEElG0PSKNBLFUbKr45dODWm4Tx1ZPpVR6Q9sfjCrgH++wTQO6w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -38,39 +36,70 @@
       margin: 0 1rem;
       font-weight: 600;
     }
-    .socials {
-      display: flex;
-      gap: 0.5rem;
-    }
-    .socials a {
-      text-decoration: none;
-      color: white;
-      font-size: 1.6rem;
-      display: flex;
-      align-items: center;
-    }
-    .socials a:hover {
-      color: #ffcc00;
-    }
     main {
       padding: 2rem;
       max-width: 960px;
       margin: auto;
     }
-    .about {
+    h1 {
+      color: #0050b3;
+    }
+    .search-box {
+      margin-bottom: 1rem;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
       background-color: #fff;
       border: 1px solid #ccc;
-      padding: 1rem;
-      margin-top: 2rem;
       border-radius: 8px;
     }
+    th, td {
+      text-align: left;
+      padding: 0.75rem;
+      border-bottom: 1px solid #eee;
+    }
+    th {
+      background-color: #0050b3;
+      color: white;
+    }
+    tr:hover {
+      background-color: #f0f0f0;
+    }
   </style>
+  <script>
+    function filterTable() {
+      const input = document.getElementById("searchInput");
+      const filter = input.value.toLowerCase();
+      const table = document.getElementById("fishTable");
+      const trs = table.getElementsByTagName("tr");
+
+      for (let i = 1; i < trs.length; i++) {
+        const tds = trs[i].getElementsByTagName("td");
+        let match = false;
+        for (let j = 0; j < tds.length; j++) {
+          if (tds[j].innerText.toLowerCase().includes(filter)) {
+            match = true;
+            break;
+          }
+        }
+        trs[i].style.display = match ? "" : "none";
+      }
+    }
+  </script>
 </head>
 <body>
   <header>
     <div class="logo">
       <img src="favicon.ico" alt="Logo Ozbak">
-      <h1>Ozbak - Lifelist</h1>
+      <h1>Ozbak</h1>
     </div>
     <nav>
       <a href="index.html">Accueil</a>
@@ -78,22 +107,108 @@
       <a href="poissons-manquants.html">Poissons manquants (QC)</a>
       <a href="#about">À propos</a>
     </nav>
-    <div class="socials">
-      <a href="https://www.youtube.com/channel/UCeBZ9tmqAlF5FpqstJlgaxQ" target="_blank" title="YouTube"><img src="https://i.imgur.com/9dx1WP3.png" alt="Youtube" style="height: 40px; margin-left: 40px;"></a>
-      <a href="https://www.facebook.com/OzbakFishing2022/" target="_blank" title="Facebook"><img src="https://i.imgur.com/zY6sPap.png" alt="Facebook" style="height: 40px; margin-left: 40px;"></a>
-      <a href="https://www.inaturalist.org/people/ozbak" target="_blank" title="iNaturalist"><img src="https://i.imgur.com/zDeQY54.png" alt="iNaturalist" style="height: 40px; margin-left: 40px;"></a>
-    </div>
   </header>
   <main>
-    <section class="about" id="about">
-      <h2>À propos</h2>
-      <p>Je suis un pêcheur passionné vivant à Montréal, spécialisé dans la capture et la documentation des espèces de poissons que je rencontre. Ce site est une vitrine de ma <strong>lifelist</strong>, un journal vivant de toutes les espèces que j’ai capturées à travers mes aventures.</p>
-      <p>Mon objectif est de découvrir et respecter la biodiversité halieutique, un poisson à la fois 🎣</p>
-<h2>About</h2>
-<p>I’m a passionate angler based in Montreal, focused on catching and documenting the fish species I encounter. This site showcases my <strong>lifelist</strong>—a living journal of all the species I’ve caught throughout my adventures.</p>
-<p>My goal is to discover and respect aquatic biodiversity, one fish at a time 🎣</p>
+    <h1>Poissons d'eau douce manquants du Québec</h1>
+    <p>Voici une sélection d'espèces d'eau douce présentes au Québec que je n'ai pas encore capturées. Cette liste m'aide à cibler mes prochaines aventures de pêche :
+</p>
 
-    </section>
+    <div class="search-box">
+      <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Rechercher un poisson...">
+    </div>
+
+    <table id="fishTable">
+      <thead>
+        <tr>
+          <th>Nom Français</th>
+          <th>Nom Anglais</th>
+          <th>Nom Scientifique</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+
+<tr><td>Gobie à Nez Tubulaire	</td><td>Tubenose Goby</td><td><em>Proterorhinus semilunaris</em></td></tr>
+<tr><td>Malachigan</td><td>Freshwater Drum</td><td><em>Aplodinotus grunniens</em></td></tr>
+<tr><td>Bar Blanc</td><td>White Bass</td><td><em>Morone chrysops</em></td></tr>
+<tr><td>Achigan à Grande Bouche</td><td>Largemouth Bass</td><td><em>Micropterus nigricans</em></td></tr>
+<tr><td>Crapet du Nord</td><td>Northern Sunfish</td><td><em>Lepomis peltastes</em></td></tr>
+<tr><td>Marigane Noire</td><td>Black Crappie</td><td><em>Pomoxis nigromaculatus</em></td></tr>
+<tr><td>Laquaiche Aux Yeux d'Or</td><td>Goldeye</td><td><em>Hiodon alosoides</em></td></tr>
+<tr><td>Chat-fou Brun</td><td>Tadpole Madtom</td><td><em>Noturus gyrinus</em></td></tr>
+<tr><td>Barbotte des Rapides</td><td>Stonecat</td><td><em>Noturus flavus</em></td></tr>
+<tr><td>Chat-fou Liséré</td><td>Margined Madtom</td><td><em>Noturus insignis</em></td></tr>
+<tr><td>Barbotte Jaune</td><td>Yellow Bullhead</td><td><em>Ameiurus natalis</em></td></tr>
+<tr><td>Carpe de Roseau</td><td>Grass Carp</td><td><em>Ctenopharyngodon idella</em></td></tr>
+<tr><td>Méné Paille</td><td>Sand Shiner</td><td><em>Miniellus stramineus</em></td></tr>
+<tr><td>Menton Noir</td><td>Blackchin Shiner</td><td><em>Miniellus heterodon</em></td></tr>
+<tr><td>Méné d'Herbe</td><td>Bridle Shiner</td><td><em>Notropis bifrenatus</em></td></tr>
+<tr><td>Méné à tête rose</td><td>Rosyface Shiner</td><td><em>Notropis rubellus</em></td></tr>
+<tr><td>Museau Noir</td><td>Blacknose Shiner</td><td><em>Notropis heterolepis</em></td></tr>
+<tr><td>Méné à Nageoires Rouges</td><td>Common Shiner</td><td><em>Luxilus cornutus</em></td></tr>
+<tr><td>Tête-de-Boule</td><td>Fathead Minnow</td><td><em>Pimephales promelas</em></td></tr>
+<tr><td>Bec-de-Lièvre</td><td>Cutlip Minnow</td><td><em>Exoglossum maxillingua</em></td></tr>
+<tr><td>Méné Laiton</td><td>Brassy Minnow</td><td><em>Hybognathus hankinsoni</em></td></tr>
+<tr><td>Méné d'Argent</td><td>Eastern Silvery Minnow</td><td><em>Hybognathus regius</em></td></tr>
+<tr><td>Méné de Lac</td><td>Lake Chub</td><td><em>Couesius plumbeus</em></td></tr>
+<tr><td>Mulet Perlé du Nord</td><td>Northern Pearl Dace</td><td><em>Margariscus nachtriebi</em></td></tr>
+<tr><td>Méné ventre citron</td><td>Finescale Dace</td><td><em>Chrosomus neogaeus</em></td></tr>
+<tr><td>Méné ventre rouge</td><td>Northern Redbelly Dace</td><td><em>Chrosomus eos</em></td></tr>
+<tr><td>Gardon rouge</td><td>Rudd</td><td><em>Scardinius erythrophthalmus</em></td></tr>
+<tr><td>Chevalier Cuivré</td><td>Copper Redhorse</td><td><em>Moxostoma hubbsi</em></td></tr>
+<tr><td>Chevalier Jaune</td><td>Greater Redhorse</td><td><em>Moxostoma valenciennesi</em></td></tr>
+<tr><td>Meunier Noir</td><td>White Sucker</td><td><em>Catostomus commersonii</em></td></tr>
+<tr><td>Meunier Rouge</td><td>Longnose Sucker</td><td><em>Catostomus catostomus</em></td></tr>
+<tr><td>Couette</td><td>Quillback</td><td><em>Carpiodes cyprinus</em></td></tr>
+<tr><td>Fouille-roche Gris</td><td>Channel Darter</td><td><em>Percina copelandi</em></td></tr>
+<tr><td>Fouille-roche Zébré</td><td>Logperch</td><td><em>Percina caprodes</em></td></tr>
+<tr><td>Dard Barré</td><td>Fantail Darter</td><td><em>Etheostoma flabellare</em></td></tr>
+<tr><td>Raseux-de-terre Gris</td><td>Tessellated Darter</td><td><em>Etheostoma olmstedi</em></td></tr>
+<tr><td>Raseux-de-terre Noir</td><td>Johnny Darter</td><td><em>Etheostoma nigrum</em></td></tr>
+<tr><td>Dard à Ventre Jaune</td><td>Iowa Darter</td><td><em>Etheostoma exile</em></td></tr>
+<tr><td>Dard de Sable</td><td>Eastern Sand Darter</td><td><em>Ammocrypta pellucida</em></td></tr>
+<tr><td>Doré Noir</td><td>Sauger</td><td><em>Sander canadensis</em></td></tr>
+<tr><td>Chabot Tacheté</td><td>Mottled Sculpin</td><td><em>Cottus bairdii</em></td></tr>
+<tr><td>Chabot Visqueux</td><td>Slimy Sculpin</td><td><em>Cottus cognatus</em></td></tr>
+<tr><td>Chabot à Tête Plate</td><td>Spoonhead Sculpin</td><td><em>Cottus ricei</em></td></tr>
+<tr><td>Chabot de Profondeur</td><td>Deepwater Sculpin</td><td><em>Myoxocephalus thompsonii</em></td></tr>
+<tr><td>Chaboisseau à Quatre Cornes</td><td>Fourhorn Sculpin</td><td><em>Myoxocephalus quadricornis</em></td></tr>
+<tr><td>Épinoche Tachetée</td><td>Blackspotted Stickleback</td><td><em>Gasterosteus wheatlandi</em></td></tr>
+<tr><td>Épinoche à trois épines</td><td>Threespine Stickleback</td><td><em>Gasterosteus aculeatus</em></td></tr>
+<tr><td>Épinoche à Neuf Épines</td><td>Ninespine Stickleback</td><td><em>Pungitius pungitius</em></td></tr>
+<tr><td>Épinoche à Quatre Épines</td><td>Fourspine Stickleback</td><td><em>Apeltes quadracus</em></td></tr>
+<tr><td>Truite Brune</td><td>Brown Trout</td><td><em>Salmo trutta</em></td></tr>
+<tr><td>Saumon Atlantique</td><td>Atlantic Salmon</td><td><em>Salmo salar</em></td></tr>
+<tr><td>Truite Arc-En-Ciel</td><td>Rainbow Trout</td><td><em>Oncorhynchus mykiss</em></td></tr>
+<tr><td>Saumon Coho</td><td>Coho Salmon</td><td><em>Oncorhynchus kisutch</em></td></tr>
+<tr><td>Saumon Chinook</td><td>Chinook Salmon</td><td><em>Oncorhynchus tshawytscha</em></td></tr>
+<tr><td>Truite Fardée</td><td>Cutthroat Trout</td><td><em>Oncorhynchus clarkii</em></td></tr>
+<tr><td>Saumon Rouge</td><td>Sockeye Salmon</td><td><em>Oncorhynchus nerka</em></td></tr>
+<tr><td>Omble Chevalier</td><td>Arctic Char</td><td><em>Salvelinus alpinus</em></td></tr>
+<tr><td>Omble de Fontaine</td><td>Brook Trout</td><td><em>Salvelinus fontinalis</em></td></tr>
+<tr><td>Corégone Cisco</td><td>Cisco</td><td><em>Coregonus artedi</em></td></tr>
+<tr><td>Grand Corégone</td><td>Lake Whitefish</td><td><em>Coregonus clupeaformis</em></td></tr>
+<tr><td>Ménomini Rond</td><td>Round Whitefish</td><td><em>Prosopium cylindraceum</em></td></tr>
+<tr><td>Brochet d'Amérique</td><td>Redfin Pickerel</td><td><em>Esox americanus</em></td></tr>
+<tr><td>Brochet Vermiculé</td><td>Grass Pickerel</td><td><em>Esox americanus ssp. vermiculatus</em></td></tr>
+<tr><td>Maskinongé</td><td>Muskellunge</td><td><em>Esox masquinongy</em></td></tr>
+<tr><td>Brochet Maillé</td><td>Chain Pickerel</td><td><em>Esox niger</em></td></tr>
+<tr><td>Grand Brochet</td><td>Northern Pike</td><td><em>Esox lucius</em></td></tr>
+<tr><td>Alose Noyer</td><td>Gizzard Shad</td><td><em>Dorosoma cepedianum</em></td></tr>
+<tr><td>Alose d'Été</td><td>Blueback Herring</td><td><em>Alosa aestivalis</em></td></tr>
+<tr><td>Gaspereau</td><td>Alewife</td><td><em>Alosa pseudoharengus</em></td></tr>
+<tr><td>Choquemort</td><td>Mummichog</td><td><em>Fundulus heteroclitus</em></td></tr>
+<tr><td>Esturgeon Noir</td><td>Atlantic Sturgeon</td><td><em>Acipenser oxyrinchus</em></td></tr>
+<tr><td>Éperlan Arc-En-Ciel</td><td>Rainbow Smelt</td><td><em>Osmerus mordax</em></td></tr>
+<tr><td>Lépisostée Osseux</td><td>Longnose Gar</td><td><em>Lepisosteus osseus</em></td></tr>
+<tr><td>Poisson-Castor</td><td>Bowfin</td><td><em>Amia ocellicauda</em></td></tr>
+<tr><td>Lotte de Rivière</td><td>Burbot</td><td><em>Lota lota</em></td></tr>
+<tr><td>Crayon d'Argent</td><td>Brook Silverside</td><td><em>Labidesthes sicculus</em></td></tr>
+<tr><td>Omisco</td><td>Trout-Perch</td><td><em>Percopsis omiscomaycus</em></td></tr>
+
+        
+      </tbody>
+    </table>
   </main>
 </body>
 </html>
